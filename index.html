@@ -1064,6 +1064,17 @@
     #demo-video-section {
       scroll-margin-top: 100px;
     }
+
+    /* Fade-in-up animation for scroll */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+    .fade-in-up.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -1085,7 +1096,7 @@
     </div>
   </header>
 
-  <section id="home" class="section hero-section">
+  <section id="home" class="section hero-section fade-in-up">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap items-center md:flex-row flex-col-reverse">
         <div class="w-full lg:w-6/12 mt-10 lg:mt-0 flex justify-center" data-aos="fade-left">
@@ -1122,48 +1133,48 @@
     <div class="circuit-bg"></div>
   </section>
 
-  <section id="features" class="section">
+  <section id="features" class="section fade-in-up">
     <div class="container mx-auto px-4">
       <h2 class="section-title text-center glitch-effect" data-text="Why Choose Ava AI?">
         Why Choose Ava <span class="ai-white">AI</span>?
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card fade-in-up" data-aos-delay="100">
           <div class="feature-icon">
             <i class="fas fa-microphone"></i>
           </div>
           <h3 class="feature-title">Voice & Text Activation</h3>
           <p class="feature-text">Interact with Ava using voice or text for seamless trading—execute trades, get insights or ask questions hands-free.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card fade-in-up" data-aos-delay="200">
           <div class="feature-icon">
             <i class="fas fa-chart-line"></i>
           </div>
           <h3 class="feature-title">Real-Time Token Analysis</h3>
           <p class="feature-text">Ava scans Axiom for volume spikes, holder count, dev activity, top-10% supply and insider holdings.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card fade-in-up" data-aos-delay="300">
           <div class="feature-icon">
             <i class="fas fa-satellite-dish"></i>
           </div>
           <h3 class="feature-title">AFK Scanning for Projects</h3>
           <p class="feature-text">Even while you're away, Ava continuously scans for high-potential tokens and monitors market activities.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-card fade-in-up" data-aos-delay="400">
           <div class="feature-icon">
             <i class="fas fa-volume-up"></i>
           </div>
           <h3 class="feature-title">Voice Prompts for Updates</h3>
           <p class="feature-text">Receive Ava's voice alerts on market shifts, token updates and trade opportunities in real-time.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-card fade-in-up" data-aos-delay="500">
           <div class="feature-icon">
             <i class="fas fa-puzzle-piece"></i>
           </div>
           <h3 class="feature-title">Seamless Axiom Integration</h3>
           <p class="feature-text">Highlight a token on Axiom and trade via voice or text in one command with perfect platform integration.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="feature-card fade-in-up" data-aos-delay="600">
           <div class="feature-icon">
             <i class="fas fa-shield-alt"></i>
           </div>
@@ -1181,14 +1192,14 @@
     </div>
   </section>
 
-  <section id="how-it-works" class="section">
+  <section id="how-it-works" class="section fade-in-up">
     <div class="container mx-auto px-4">
       <h2 class="section-title text-center" data-aos="fade-up">How Ava <span class="ai-white">AI</span> Works</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative mb-20">
         <div class="step-line d-none d-md-block"></div>
         
-        <div class="step-box" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-box fade-in-up" data-aos-delay="100">
           <div class="step-number">1</div>
           <div class="feature-icon mx-auto">
             <i class="fas fa-search"></i>
@@ -1197,7 +1208,7 @@
           <div class="step-content">Select any token to view its chart and metrics. Ava instantly begins analyzing fundamentals.</div>
         </div>
         
-        <div class="step-box" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-box fade-in-up" data-aos-delay="200">
           <div class="step-number">2</div>
           <div class="feature-icon mx-auto">
             <i class="fas fa-robot"></i>
@@ -1206,7 +1217,7 @@
           <div class="step-content">Ava provides insights and executes trades via voice or text. Just say "Buy 500 SOL" or "Analyse BONK tokenomics."</div>
         </div>
         
-        <div class="step-box" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-box fade-in-up" data-aos-delay="300">
           <div class="step-number">3</div>
           <div class="feature-icon mx-auto">
             <i class="fas fa-bell"></i>
@@ -1216,7 +1227,7 @@
         </div>
       </div>
       
-      <div id="demo-video-section" class="demo-video-container" data-aos="fade-up">
+      <div id="demo-video-section" class="demo-video-container fade-in-up" data-aos="fade-up">
         <div class="custom-play-btn" id="customPlayBtn">
           <svg viewBox="0 0 64 64"><polygon points="16,8 56,32 16,56"/></svg>
         </div>
@@ -1235,13 +1246,13 @@
     <div class="circuit-bg"></div>
   </section>
 
-  <section id="community" class="section">
+  <section id="community" class="section fade-in-up">
     <div class="container mx-auto px-4">
       <div class="community-container">
         <h2 class="section-title" data-aos="fade-up">Join the Ava <span class="ai-white">AI</span> Community</h2>
         <p class="mb-8 max-w-lg mx-auto text-center" data-aos="fade-up" data-aos-delay="100">Connect with traders and developers using Ava AI. Get early access to new features, trading strategies and support from our community.</p>
         
-        <div class="social-links" data-aos="fade-up" data-aos-delay="200">
+        <div class="social-links fade-in-up" data-aos-delay="200">
           <a href="#" class="social-link">
             <i class="fab fa-telegram"></i>
           </a>
@@ -1250,7 +1261,7 @@
           </a>
         </div>
         
-        <div class="mt-20" data-aos="fade-up" data-aos-delay="300">
+        <div class="mt-20 fade-in-up">
           <a href="#" class="btn btn-primary pulsating-btn">
             <i class="fas fa-rocket mr-2"></i> Join Now
           </a>
@@ -1266,7 +1277,7 @@
     <div class="circuit-bg"></div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer fade-in-up">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
@@ -1531,6 +1542,17 @@
     } else {
       demoVideo.setAttribute('poster', 'demo-thumbnail.png');
     }
+
+    // Animate elements on scroll
+    const fadeElements = document.querySelectorAll('.fade-in-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => fadeObserver.observe(el));
   </script>
 </body>
 </html>
