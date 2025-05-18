@@ -1535,6 +1535,13 @@
         }
       });
     }
+
+    // Swap poster for mobile
+    if (window.innerWidth <= 768) {
+      demoVideo.setAttribute('poster', 'mobile-demo-thumbnail.png');
+    } else {
+      demoVideo.setAttribute('poster', 'demo-thumbnail.png');
+    }
   </script>
 </body>
 </html>
