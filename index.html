@@ -978,16 +978,18 @@
 
       .demo-video-container {
         margin: 24px 0 0 0;
-        border-radius: 0;
-        max-width: 100vw;
-        width: 100vw;
+        border-radius: 12px;
+        max-width: 95vw;
+        width: 95vw;
         padding: 0;
+        aspect-ratio: 1/1;
       }
 
       .demo-video-container video {
-        width: 100vw;
-        min-height: 180px;
-        max-height: 50vw;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
       }
 
       .section#how-it-works {
@@ -1095,7 +1097,7 @@
         <div class="w-full lg:w-6/12 hero-content" data-aos="fade-right">
           <div class="typing-container mb-4">
             <h1 class="hero-title">
-              <span id="typed-text" class="typing-text hidden md:inline"></span><span class="cursor hidden md:inline"></span>
+              <span id="typed-text" class="typing-text hidden md:inline-block"></span><span class="cursor hidden md:inline-block"></span>
               <span class="block md:hidden">Ava <span class="ai-white">AI</span>: Your Personal Voice & Text Crypto Trading Assistant on Axiom</span>
             </h1>
           </div>
