@@ -1099,13 +1099,13 @@
   <section id="home" class="section hero-section fade-in-up">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap items-center md:flex-row flex-col-reverse">
-        <div class="w-full lg:w-6/12 mt-10 lg:mt-0 flex justify-center" data-aos="fade-left">
+        <div class="w-full lg:w-6/12 flex flex-col order-2 md:order-1 justify-center" data-aos="fade-left">
           <div class="avatar-container">
             <div class="avatar-glow"></div>
             <img src="ava-hero-image-min.png" alt="Ava AI Avatar" class="avatar-image">
           </div>
         </div>
-        <div class="w-full lg:w-6/12 hero-content" data-aos="fade-right">
+        <div class="w-full lg:w-6/12 hero-content flex flex-col order-1 md:order-2" data-aos="fade-right">
           <div class="typing-container mb-4">
             <h1 class="hero-title">
               Ava <span class="ai-white">AI</span>: Your Personal Voice & Text Crypto Trading Assistant on Axiom
@@ -1117,13 +1117,15 @@
               <img src="axiom-logo1.ico" alt="Axiom Pro" class="inline-logo ml-3" style="height:48px; width:auto; vertical-align:middle;" />
             </span>
           </p>
-          <div class="mt-8 flex flex-row flex-wrap justify-center items-center gap-x-2 sm:justify-start">
-            <div class="w-auto sm:w-auto mb-2 sm:mb-0">
-              <a href="#features" class="btn btn-primary pulsating-btn text-sm px-4 py-2 w-full text-center">Get Started</a>
-            </div>
-            <div class="w-auto sm:w-auto">
-              <a href="#demo-video-section" class="btn btn-secondary text-sm px-4 py-2 w-full text-center">Watch Demo</a>
-            </div>
+          <div class="hidden md:flex mt-8 flex-row flex-wrap justify-start items-center gap-3">
+            <a href="#features" class="btn btn-primary pulsating-btn text-sm px-4 py-2 min-w-fit">Get Started</a>
+            <a href="#demo-video-section" class="btn btn-secondary text-sm px-4 py-2 min-w-fit">Watch Demo</a>
+          </div>
+        </div>
+        <div class="w-full flex md:hidden order-0 mb-4">
+          <div class="grid grid-cols-2 gap-2 w-full max-w-xs mx-auto">
+            <a href="#features" class="btn btn-primary pulsating-btn text-sm px-4 py-2 w-full text-center">Get Started</a>
+            <a href="#demo-video-section" class="btn btn-secondary text-sm px-4 py-2 w-full text-center">Watch Demo</a>
           </div>
         </div>
       </div>
