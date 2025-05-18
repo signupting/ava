@@ -1056,12 +1056,6 @@
         <span></span>
       </button>
     </div>
-    <nav class="nav-mobile md:hidden" id="mobile-nav">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#features" class="nav-link">Features</a>
-      <a href="#how-it-works" class="nav-link">How It Works</a>
-      <a href="#community" class="nav-link">Community</a>
-    </nav>
   </header>
 
   <section id="home" class="section hero-section">
@@ -1073,8 +1067,11 @@
               <span id="typed-text" class="typing-text"></span><span class="cursor"></span>
             </h1>
           </div>
-          <p class="hero-subtitle">Analyse tokens, execute trades, and be prompted to check promising tokens with Ava's voice AI-powered insights on the Axiom Pro platform.
-            <img src="axiom-logo1.ico" alt="Axiom Pro" class="inline-logo" />
+          <p class="hero-subtitle">Analyse tokens, execute trades, and be prompted to check promising tokens with Ava's voice AI-powered insights on the<br>
+            <span class="block mt-4 text-2xl md:text-3xl font-extrabold font-montserrat flex items-center" style="color:#fff; line-height:1.2;">
+              Axiom Pro platform
+              <img src="axiom-logo1.ico" alt="Axiom Pro" class="inline-logo ml-3" style="height:48px; width:auto; vertical-align:middle;" />
+            </span>
           </p>
           <div class="mt-8 flex flex-wrap">
             <a href="#features" class="btn btn-primary pulsating-btn mb-4 md:mb-0">Get Started</a>
@@ -1414,20 +1411,9 @@
       
       // Mobile menu toggle
       const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobile-nav');
       
       hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-      });
-      
-      // Close mobile menu when clicking a link
-      const mobileLinks = document.querySelectorAll('.nav-mobile .nav-link');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('active');
-          mobileNav.classList.remove('active');
-        });
       });
       
       // Animate elements on scroll
