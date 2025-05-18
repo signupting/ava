@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Ava AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <style>
+        :root {
+            --ava-green: #00FF84;
+            --ava-dark-green: #00CC6A;
+            --ava-darker-green: #009950;
+            --ava-glow: 0 0 10px #00FF84, 0 0 20px rgba(0, 255, 132, 0.5);
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 132, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 132, 0.03) 0%, transparent 20%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.98));
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ava-green);
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0, 255, 132, 0.3);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ava-green);
+            text-shadow: var(--ava-glow);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 132, 0.15);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 50%, rgba(0, 255, 132, 0.03) 50%),
+                linear-gradient(rgba(0, 255, 132, 0.03) 50%, transparent 50%);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 255, 132, 0.3);
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--ava-green);
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            box-shadow: var(--ava-glow);
+        }
+        
+        .toc {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 20, 10, 0.5);
+            border-radius: 8px;
+            border-left: 3px solid var(--ava-green);
+        }
+        
+        .toc-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-link {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-link:hover {
+            background: rgba(0, 255, 132, 0.1);
+            color: var(--ava-green);
+            text-shadow: 0 0 5px rgba(0, 255, 132, 0.5);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--ava-green);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border: 1px solid var(--ava-green);
+            box-shadow: var(--ava-glow);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-top:hover {
+            background: rgba(0, 255, 132, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 255, 132, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .highlight {
+            color: var(--ava-green);
+            font-weight: 500;
+        }
+        
+        /* Circuit design elements */
+        .circuit {
+            position: absolute;
+            background: linear-gradient(90deg, transparent 50%, var(--ava-green) 50%);
+            opacity: 0.15;
+        }
+        
+        .circuit-h {
+            height: 1px;
+            width: 100px;
+        }
+        
+        .circuit-v {
+            width: 1px;
+            height: 100px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--ava-darker-green);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--ava-dark-green);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <header class="py-6 px-4 sm:px-6 lg:px-8 border-b border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold">
+                    <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                </h1>
+            </div>
+            <nav class="hidden md:flex gap-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="private-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+                <a href="cookie-policy.html" class="nav-link">Cookie Policy</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1 class="text-4xl font-bold mb-6 text-center">Terms of Service</h1>
+        
+        <div class="toc">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#acceptance" class="toc-link">1. Acceptance of Terms</a></li>
+                <li class="toc-item"><a href="#service-description" class="toc-link">2. Service Description</a></li>
+                <li class="toc-item"><a href="#eligibility" class="toc-link">3. User Eligibility</a></li>
+                <li class="toc-item"><a href="#registration" class="toc-link">4. Account Registration</a></li>
+                <li class="toc-item"><a href="#use-of-services" class="toc-link">5. Use of Services</a></li>
+                <li class="toc-item"><a href="#voice-commands" class="toc-link">6. Voice and Text Commands</a></li>
+                <li class="toc-item"><a href="#trading-risks" class="toc-link">7. Trading Risks and Disclaimers</a></li>
+                <li class="toc-item"><a href="#intellectual-property" class="toc-link">8. Intellectual Property</a></li>
+                <li class="toc-item"><a href="#liability" class="toc-link">9. Limitation of Liability</a></li>
+                <li class="toc-item"><a href="#dispute" class="toc-link">10. Dispute Resolution</a></li>
+                <li class="toc-item"><a href="#modifications" class="toc-link">11. Modifications to Terms</a></li>
+                <li class="toc-item"><a href="#termination" class="toc-link">12. Termination</a></li>
+                <li class="toc-item"><a href="#governing-law" class="toc-link">13. Governing Law</a></li>
+            </ul>
+        </div>
+        
+        <section id="acceptance" class="section">
+            <h2 class="section-title">1. Acceptance of Terms</h2>
+            <div class="circuit circuit-h" style="top: 50px; left: -20px;"></div>
+            <p>By accessing or using Ava AI ("the Service"), a voice and text crypto-trading assistant built for the Axiom Pro platform on Solana, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you must not access or use the Service.</p>
+            <p>These Terms constitute a legally binding agreement between you and Ava AI ("we," "us," or "our"). You represent and warrant that you have the legal capacity to enter into this agreement.</p>
+        </section>
+        
+        <section id="service-description" class="section">
+            <h2 class="section-title">2. Service Description</h2>
+            <div class="circuit circuit-v" style="top: 20px; right: 30px;"></div>
+            <p>Ava AI is a futuristic voice and text crypto-trading assistant built for the Axiom Pro platform on Solana. The Service provides the following functionalities:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Real-time token analysis and metrics</li>
+                <li>Voice and text command execution for cryptocurrency trades</li>
+                <li>Monitoring of token performance and market conditions</li>
+                <li>Voice-prompted updates on promising tokens</li>
+                <li>Integration with the Axiom Pro platform</li>
+            </ul>
+            <p>We reserve the right to modify, suspend, or discontinue any aspect of the Service at any time without prior notice.</p>
+        </section>
+        
+        <section id="eligibility" class="section">
+            <h2 class="section-title">3. User Eligibility</h2>
+            <p>To use the Service, you must be:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>At least 18 years of age or the age of legal majority in your jurisdiction, whichever is greater</li>
+                <li>Not prohibited from using cryptocurrency trading services under the laws of your jurisdiction</li>
+                <li>Not a resident or citizen of a jurisdiction where cryptocurrency trading is restricted or prohibited</li>
+                <li>Not a person subject to economic sanctions or trading restrictions</li>
+            </ul>
+            <p>By using the Service, you represent and warrant that you meet all eligibility requirements.</p>
+        </section>
+        
+        <section id="registration" class="section">
+            <h2 class="section-title">4. Account Registration</h2>
+            <div class="circuit circuit-h" style="bottom: 30px; right: -20px;"></div>
+            <p>To access certain features of the Service, you may need to create an account. When registering for an account, you agree to:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain and promptly update your account information</li>
+                <li>Keep your account credentials secure and confidential</li>
+                <li>Accept responsibility for all activities that occur under your account</li>
+                <li>Notify us immediately of any unauthorized use of your account or any other breach of security</li>
+            </ul>
+            <p>We reserve the right to suspend or terminate your account if we suspect any unauthorized access or if you violate these Terms.</p>
+        </section>
+        
+        <section id="use-of-services" class="section">
+            <h2 class="section-title">5. Use of Services</h2>
+            <p>When using the Service, you agree not to:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Use the Service for any illegal purpose or in violation of any local, state, national, or international law</li>
+                <li>Interfere with or disrupt the operation of the Service or servers or networks connected to the Service</li>
+                <li>Attempt to gain unauthorized access to the Service, other accounts, or computer systems</li>
+                <li>Use any automated system or software to extract data from the Service ("scraping")</li>
+                <li>Impersonate any person or entity or falsely state or misrepresent your affiliation with a person or entity</li>
+                <li>Engage in market manipulation, fraud, or any deceptive trading practices</li>
+                <li>Use the Service in a manner that could damage, disable, overburden, or impair the Service</li>
+            </ul>
+        </section>
+        
+        <section id="voice-commands" class="section">
+            <h2 class="section-title">6. Voice and Text Commands</h2>
+            <div class="circuit circuit-v" style="bottom: 20px; left: 40px;"></div>
+            <p>The Service allows you to interact using voice and text commands. By using these features:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>You acknowledge that voice commands may be recorded, processed, and stored to provide and improve the Service</li>
+                <li>You understand that voice recognition technology is not perfectly accurate and may misinterpret your commands</li>
+                <li>You accept responsibility for all trades and actions executed through your voice or text commands</li>
+                <li>You agree to verify all transactions before confirming them, whether initiated by voice or text</li>
+            </ul>
+            <p>For details on how we handle voice data, please refer to our <a href="#" class="text-green-400 hover:text-green-300">Privacy Policy</a>.</p>
+        </section>
+        
+        <section id="trading-risks" class="section">
+            <h2 class="section-title">7. Trading Risks and Disclaimers</h2>
+            <p class="font-medium text-yellow-400">Cryptocurrency trading involves significant risks. By using Ava AI, you acknowledge and accept that:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Cryptocurrency values can be highly volatile and may fluctuate significantly over short periods</li>
+                <li>You may lose some or all of your investment capital</li>
+                <li>Past performance is not indicative of future results</li>
+                <li>Ava AI provides information and facilitates trades but does not provide financial advice</li>
+                <li>You are solely responsible for your trading decisions</li>
+                <li>Technical issues, network delays, or market conditions may affect the execution of trades</li>
+                <li>Regulatory changes may impact cryptocurrency markets and the availability of certain tokens</li>
+            </ul>
+            <p class="font-bold">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND. WE EXPRESSLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        </section>
+        
+        <section id="intellectual-property" class="section">
+            <h2 class="section-title">8. Intellectual Property</h2>
+            <p>All content, features, and functionality of the Service, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, software, and the design, selection, and arrangement thereof, are owned by Ava AI or its licensors and are protected by copyright, trademark, and other intellectual property laws.</p>
+            <p>You are granted a limited, non-exclusive, non-transferable license to use the Service for your personal, non-commercial use. You may not:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products, or services obtained from the Service</li>
+                <li>Use any content or materials on the Service for commercial purposes</li>
+                <li>Decompile, reverse engineer, or disassemble the software comprising the Service</li>
+                <li>Remove any copyright, trademark, or other proprietary notices from the Service</li>
+            </ul>
+        </section>
+        
+        <section id="liability" class="section">
+            <h2 class="section-title">9. Limitation of Liability</h2>
+            <div class="circuit circuit-h" style="top: 80px; right: -40px;"></div>
+            <p class="font-bold">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL AVA AI, ITS AFFILIATES, OR THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, PERSONAL INJURY, OR PROPERTY DAMAGE, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT AVA AI HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+            <p>In jurisdictions that do not allow the exclusion or limitation of liability for consequential or incidental damages, our liability shall be limited to the maximum extent permitted by law.</p>
+            <p>You specifically acknowledge that Ava AI shall not be liable for:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Trading losses or missed opportunities</li>
+                <li>Errors in market data or analysis</li>
+                <li>Delays or failures in executing trades</li>
+                <li>System outages or technical malfunctions</li>
+                <li>Actions taken based on information provided by the Service</li>
+            </ul>
+        </section>
+        
+        <section id="dispute" class="section">
+            <h2 class="section-title">10. Dispute Resolution</h2>
+            <p>Any dispute arising out of or relating to these Terms or the Service shall first be resolved through good faith negotiations between you and Ava AI. If such efforts prove unsuccessful, all disputes shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+            <p>The arbitration shall take place in [Jurisdiction], and the language of the arbitration shall be English. The decision of the arbitrator shall be final and binding on both parties.</p>
+            <p>To the fullest extent permitted by applicable law, no arbitration under these Terms shall be joined to an arbitration involving any other party subject to these Terms, whether through class arbitration proceedings or otherwise.</p>
+            <p>Notwithstanding the foregoing, we reserve the right to seek injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights or confidential information.</p>
+        </section>
+        
+        <section id="modifications" class="section">
+            <h2 class="section-title">11. Modifications to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time at our sole discretion. If we make material changes to these Terms, we will notify you by:</p>
+            <ul class="list-disc pl-5 mt-3 mb-3">
+                <li>Posting a notice on our website</li>
+                <li>Sending an email to the address associated with your account</li>
+                <li>Displaying a notification within the Service</li>
+            </ul>
+            <p>Your continued use of the Service after any changes to these Terms constitutes your acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service.</p>
+        </section>
+        
+        <section id="termination" class="section">
+            <h2 class="section-title">12. Termination</h2>
+            <div class="circuit circuit-v" style="top: 40px; right: 60px;"></div>
+            <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason, including but not limited to a breach of these Terms.</p>
+            <p>Upon termination, your right to use the Service will immediately cease. All provisions of these Terms that by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+            <p>You may also terminate your agreement with us by discontinuing use of the Service and deleting your account if applicable.</p>
+        </section>
+        
+        <section id="governing-law" class="section">
+            <h2 class="section-title">13. Governing Law</h2>
+            <p>These Terms and your use of the Service shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law principles.</p>
+            <p>The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded.</p>
+        </section>
+    </div>
+    
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center w-full">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">
+                        <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                    </h3>
+                    <p class="text-sm text-gray-400">Your Voice & Text Crypto Trading Assistant</p>
+                </div>
+                <nav class="flex gap-6 mb-4 md:mb-0">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="private-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                </nav>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-telegram text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="glow-line mt-4 mb-4"></div>
+            <div class="mt-8 text-center text-xs text-gray-600">
+                <p class="footer-text">© 2025 Ava AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</body>
+</html>

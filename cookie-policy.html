@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy | Ava AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <style>
+        :root {
+            --neon-green: #00FF84;
+            --dark-green: #005F31;
+            --darker-black: #0A0A0A;
+            --dark-black: #121212;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(0, 255, 132, 0.5);
+        }
+        
+        .neon-text {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px rgba(0, 255, 132, 0.5);
+        }
+        
+        .neon-border {
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 132, 0.3);
+        }
+        
+        .button {
+            background-color: transparent;
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(0, 255, 132, 0.5);
+            box-shadow: 0 0 10px rgba(0, 255, 132, 0.3);
+        }
+        
+        .button:hover {
+            background-color: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 132, 0.5);
+        }
+        
+        .circuit-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.05;
+            background-image: 
+                linear-gradient(to right, var(--neon-green) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--neon-green) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+        
+        .hexagon {
+            position: absolute;
+            width: 100px;
+            height: 115px;
+            background-color: rgba(0, 255, 132, 0.03);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 1;
+        }
+        
+        .glow-line {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0,255,132,0) 0%, rgba(0,255,132,0.5) 50%, rgba(0,255,132,0) 100%);
+            width: 100%;
+            margin: 2rem 0;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: rgba(0,0,0,0.7);
+            color: var(--neon-green);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 132, 0.3);
+            z-index: 100;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--neon-green);
+            color: #000;
+        }
+        
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        
+        table th, table td {
+            border: 1px solid rgba(0, 255, 132, 0.2);
+            padding: 8px 12px;
+        }
+        
+        table th {
+            background-color: rgba(0, 255, 132, 0.1);
+            color: var(--neon-green);
+        }
+        
+        table tr:nth-child(even) {
+            background-color: rgba(0, 255, 132, 0.03);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 132, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 255, 132, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 132, 0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .cookie-card {
+            border: 1px solid var(--neon-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(0,0,0,0.9) 0%, rgba(0,30,15,0.8) 100%);
+            box-shadow: 0 4px 15px rgba(0, 255, 132, 0.1);
+        }
+        
+        .cookie-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-green), transparent, var(--neon-green));
+            z-index: -1;
+            opacity: 0.2;
+            border-radius: 8px;
+            animation: border-animation 4s linear infinite;
+        }
+        
+        @keyframes border-animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Header and navigation styles */
+        .nav-link {
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--neon-green);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--neon-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 0 1rem;
+            }
+            
+            .hexagon {
+                width: 50px;
+                height: 57.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Circuit background -->
+    <div class="circuit-bg"></div>
+    
+    <!-- Decorative hexagons -->
+    <div class="hexagon" style="top: 120px; left: 10%;"></div>
+    <div class="hexagon" style="top: 400px; right: 15%;"></div>
+    <div class="hexagon" style="top: 700px; left: 20%;"></div>
+    <div class="hexagon" style="top: 1100px; right: 10%;"></div>
+    <div class="hexagon" style="top: 1500px; left: 15%;"></div>
+    
+    <!-- Header -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8 border-b border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold">
+                    <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                </h1>
+            </div>
+            
+            <nav class="hidden md:flex">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="private-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+                <a href="cookie-policy.html" class="nav-link">Cookie Policy</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <main class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+        <div class="section">
+            <h1 class="text-4xl font-bold mb-6">Cookie Policy</h1>
+            <div class="glow-line"></div>
+            <span class="last-updated">Last Updated: April 19, 2025</span>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Introduction</h2>
+                <p class="mb-4">
+                    Welcome to Ava AI ("we," "our," or "us"). This Cookie Policy explains how we use cookies and similar technologies when you visit our website, use the Ava AI application, or interact with our services on the Axiom Pro platform on Solana.
+                </p>
+                <p>
+                    This policy provides you with clear and comprehensive information about the cookies we use, how they work, and how you can control them. By continuing to use our services, you are agreeing to our use of cookies as described in this policy.
+                </p>
+            </div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">What Are Cookies?</h2>
+                <p class="mb-4">
+                    Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit websites. They are widely used to make websites work more efficiently and provide information to website owners.
+                </p>
+                <p class="mb-4">
+                    Cookies help us recognize your device and remember certain information about your visit, such as your user preferences, settings, and previous activities. This enables us to enhance your experience with our services and provide you with personalized features.
+                </p>
+                <p>
+                    In addition to cookies, we may use other similar technologies, such as web beacons, pixels, and local storage, which serve similar purposes. For simplicity, we refer to all these technologies collectively as "cookies" in this policy.
+                </p>
+            </div>
+            
+            <div class="glow-line"></div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Types of Cookies We Use</h2>
+                <p class="mb-4">We use the following types of cookies on our platform:</p>
+                
+                <table class="w-full mb-6">
+                    <thead>
+                        <tr>
+                            <th>Cookie Type</th>
+                            <th>Description</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Essential Cookies</td>
+                            <td>Necessary for the platform to function properly. They enable core features such as security, network management, and account access.</td>
+                            <td>Session / Persistent</td>
+                        </tr>
+                        <tr>
+                            <td>Functional Cookies</td>
+                            <td>Enhance your experience by remembering your preferences and settings, such as language preference and display settings.</td>
+                            <td>Persistent (1 year)</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics Cookies</td>
+                            <td>Help us understand how you interact with our platform, allowing us to improve functionality and user experience.</td>
+                            <td>Persistent (2 years)</td>
+                        </tr>
+                        <tr>
+                            <td>Performance Cookies</td>
+                            <td>Collect information about how you use our platform, such as which pages you visit most frequently.</td>
+                            <td>Persistent (90 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Trading Interaction Cookies</td>
+                            <td>Remember your trading preferences and interaction patterns to optimize Ava AI's voice and text responses.</td>
+                            <td>Persistent (6 months)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Specific Cookies Used by Ava AI</h2>
+                <p class="mb-4">Below are examples of specific cookies used on our platform:</p>
+                
+                <table class="w-full mb-6">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ava_session</td>
+                            <td>Maintains your session state while using Ava AI</td>
+                            <td>Essential</td>
+                        </tr>
+                        <tr>
+                            <td>ava_auth</td>
+                            <td>Authenticates your identity and maintains secure access</td>
+                            <td>Essential</td>
+                        </tr>
+                        <tr>
+                            <td>ava_preferences</td>
+                            <td>Stores your interface preferences and settings</td>
+                            <td>Functional</td>
+                        </tr>
+                        <tr>
+                            <td>ava_trading_history</td>
+                            <td>Records anonymized trading patterns to improve AI responses</td>
+                            <td>Trading Interaction</td>
+                        </tr>
+                        <tr>
+                            <td>ava_analytics</td>
+                            <td>Collects usage statistics to improve our services</td>
+                            <td>Analytics</td>
+                        </tr>
+                        <tr>
+                            <td>ava_voice_settings</td>
+                            <td>Stores voice command preferences and customizations</td>
+                            <td>Functional</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="glow-line"></div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Third-Party Cookies</h2>
+                <p class="mb-4">
+                    Some cookies are placed by third parties on our behalf. These third parties may include analytics providers, advertising networks, and social media platforms. They may use information about your visits to our platform and other websites to:
+                </p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Measure the effectiveness of advertising campaigns</li>
+                    <li>Provide relevant advertising on other websites</li>
+                    <li>Analyze traffic patterns and user behavior</li>
+                    <li>Integrate with social media platforms</li>
+                </ul>
+                <p>
+                    Third-party cookies used on our platform include those from:
+                </p>
+                <ul class="list-disc pl-6">
+                    <li>Google Analytics - For website traffic analysis</li>
+                    <li>Solana blockchain services - For transaction verification</li>
+                    <li>Voice processing services - For voice command functionality</li>
+                    <li>Social media platforms (Twitter, Telegram) - For content sharing capabilities</li>
+                </ul>
+            </div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Special Considerations for Trading Activity</h2>
+                <p class="mb-4">
+                    Due to the nature of Ava AI as a crypto-trading assistant, we use specialized cookies that help improve our trading intelligence and voice command accuracy:
+                </p>
+                <ul class="list-disc pl-6">
+                    <li>Trading pattern recognition cookies (anonymized)</li>
+                    <li>Voice command learning cookies</li>
+                    <li>Token preference cookies</li>
+                    <li>Alert setting cookies</li>
+                </ul>
+                <p class="mt-4">
+                    These cookies do not store personal financial information but help our AI system provide more accurate and relevant trading assistance based on general usage patterns.
+                </p>
+            </div>
+            
+            <div class="glow-line"></div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Your Cookie Choices</h2>
+                <p class="mb-4">
+                    You have the right to choose whether to accept or reject cookies. Essential cookies cannot be rejected as they are necessary for the proper functioning of our platform.
+                </p>
+                <h3 class="text-xl mb-2 neon-text">Managing Your Cookie Preferences</h3>
+                <p class="mb-4">You can manage your cookie preferences in several ways:</p>
+                <ul class="list-disc pl-6">
+                    <li class="mb-2">
+                        <span class="neon-text">Browser Settings:</span> Most web browsers allow you to control cookies through their settings. You can usually find these settings in the "Options" or "Preferences" menu of your browser.
+                    </li>
+                    <li class="mb-2">
+                        <span class="neon-text">Our Cookie Banner:</span> When you first visit our platform, you will see a cookie consent banner that allows you to select which types of cookies you accept.
+                    </li>
+                    <li class="mb-2">
+                        <span class="neon-text">Cookie Preference Center:</span> You can update your cookie preferences at any time through our Cookie Preference Center.
+                    </li>
+                    <li>
+                        <span class="neon-text">Opt-Out Links:</span> For third-party cookies, you can use the opt-out links provided by the respective third parties.
+                    </li>
+                </ul>
+                <p class="mt-4">
+                    Please note that rejecting certain cookies may impact your experience with our platform, as some features may not function properly.
+                </p>
+            </div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Browser-Specific Instructions</h2>
+                <p class="mb-4">To manage cookies in your specific browser:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 neon-border rounded-lg">
+                        <h3 class="text-xl mb-2 neon-text">Chrome</h3>
+                        <ol class="list-decimal pl-6">
+                            <li>Click on the menu icon in the top right corner</li>
+                            <li>Select "Settings"</li>
+                            <li>Click on "Privacy and security"</li>
+                            <li>Click on "Cookies and other site data"</li>
+                            <li>Adjust your cookie settings</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="p-4 neon-border rounded-lg">
+                        <h3 class="text-xl mb-2 neon-text">Firefox</h3>
+                        <ol class="list-decimal pl-6">
+                            <li>Click on the menu icon in the top right corner</li>
+                            <li>Select "Options" (Windows) or "Preferences" (Mac)</li>
+                            <li>Select "Privacy & Security"</li>
+                            <li>Navigate to the "Cookies and Site Data" section</li>
+                            <li>Adjust your cookie settings</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="p-4 neon-border rounded-lg">
+                        <h3 class="text-xl mb-2 neon-text">Safari</h3>
+                        <ol class="list-decimal pl-6">
+                            <li>Click on "Safari" in the menu bar</li>
+                            <li>Select "Preferences"</li>
+                            <li>Click on the "Privacy" tab</li>
+                            <li>Adjust your cookie settings</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="p-4 neon-border rounded-lg">
+                        <h3 class="text-xl mb-2 neon-text">Edge</h3>
+                        <ol class="list-decimal pl-6">
+                            <li>Click on the menu icon in the top right corner</li>
+                            <li>Select "Settings"</li>
+                            <li>Click on "Cookies and site permissions"</li>
+                            <li>Navigate to "Manage and delete cookies and site data"</li>
+                            <li>Adjust your cookie settings</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glow-line"></div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Do Not Track Signals</h2>
+                <p>
+                    Some browsers have a "Do Not Track" feature that signals to websites that you do not want your online activities tracked. Due to the lack of a common understanding of how to interpret these signals, our platform currently does not respond to "Do Not Track" signals. However, you can control the use of cookies as described in this policy.
+                </p>
+            </div>
+            
+            <div class="cookie-card">
+                <h2 class="text-2xl mb-4">Updates to This Cookie Policy</h2>
+                <p class="mb-4">
+                    We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. When we make changes, we will update the "Last Updated" date at the top of this policy.
+                </p>
+                <p>
+                    We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies and related technologies. Your continued use of our platform after any changes to this Cookie Policy constitutes your acceptance of the new policy.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">
+                        <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                    </h3>
+                    <p class="text-sm text-gray-400">Your Voice & Text Crypto Trading Assistant</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-telegram text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="glow-line mt-4 mb-4"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-center md:text-left">
+                <div>
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                </div>
+                <div>
+                    <a href="private-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                </div>
+                <div>
+                    <a href="cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center text-xs text-gray-600">
+                <p class="footer-text">© 2025 Ava AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add some decorative hexagons dynamically
+        function createHexagons() {
+            const mainContent = document.querySelector('main');
+            for (let i = 0; i < 10; i++) {
+                const hexagon = document.createElement('div');
+                hexagon.className = 'hexagon';
+                hexagon.style.top = `${Math.random() * 2000 + 200}px`;
+                hexagon.style.left = `${Math.random() * 90}%`;
+                hexagon.style.opacity = '0.03';
+                mainContent.appendChild(hexagon);
+            }
+        }
+        
+        createHexagons();
+    </script>
+</body>
+</html>

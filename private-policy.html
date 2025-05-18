@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Ava AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --slime-green: #00FF84;
+            --dark-green: #005D31;
+            --darker-green: #003B1F;
+            --darkest-green: #001F10;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--slime-green);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(0, 255, 132, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--slime-green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+        
+        p, ul, ol {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        
+        a {
+            color: var(--slime-green);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        a:hover {
+            text-shadow: 0 0 8px var(--slime-green);
+        }
+        
+        a:hover:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background-color: var(--slime-green);
+            box-shadow: 0 0 5px var(--slime-green);
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(to bottom right, rgba(0, 50, 25, 0.3), rgba(0, 20, 10, 0.8));
+            border: 1px solid rgba(0, 255, 132, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 255, 132, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--slime-green), transparent);
+        }
+        
+        .section:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--slime-green), transparent);
+        }
+        
+        .hex-pattern {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, rgba(0, 60, 30, 0.2), rgba(0, 30, 15, 0.8), rgba(0, 60, 30, 0.2));
+            box-shadow: 0 0 25px rgba(0, 255, 132, 0.15);
+            border-bottom: 1px solid rgba(0, 255, 132, 0.3);
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--slime-green);
+            text-shadow: 0 0 10px rgba(0, 255, 132, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: #ccc;
+            margin-top: 0.5rem;
+        }
+        
+        .glow-text {
+            color: var(--slime-green);
+            text-shadow: 0 0 5px rgba(0, 255, 132, 0.7);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(0, 255, 132, 0.3);
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .date {
+            margin-top: 1rem;
+            color: #777;
+        }
+        
+        .highlight {
+            background-color: rgba(0, 255, 132, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        /* Circuit background pattern */
+        .circuit-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 255, 132, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 255, 132, 0.03) 0%, transparent 25%);
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Separator */
+        .separator {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--slime-green), transparent);
+            margin: 2rem 0;
+            box-shadow: 0 0 8px rgba(0, 255, 132, 0.5);
+        }
+        
+        /* Contact section */
+        .contact-section {
+            background: linear-gradient(to bottom, rgba(0, 40, 20, 0.5), rgba(0, 20, 10, 0.8));
+            border: 1px solid rgba(0, 255, 132, 0.3);
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <header class="py-6 px-4 sm:px-6 lg:px-8 border-b border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold">
+                    <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                </h1>
+            </div>
+            <nav class="hidden md:flex gap-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="private-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+                <a href="cookie-policy.html" class="nav-link">Cookie Policy</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        
+        <div class="section">
+            <h2>1. Introduction</h2>
+            <p>Welcome to Ava AI ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our voice and text crypto-trading assistant built for the Axiom Pro platform on Solana.</p>
+            <p>By using Ava AI, you agree to the collection and use of information in accordance with this policy. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+        </div>
+        
+        <div class="section">
+            <h2>2. Information We Collect</h2>
+            <p>To provide our advanced crypto-trading assistant services, we collect and process various types of data:</p>
+            
+            <h3>2.1 Voice Commands and Audio Data</h3>
+            <p>When you interact with Ava AI using voice commands, we collect:</p>
+            <ul>
+                <li>Audio recordings of your voice commands</li>
+                <li>Transcripts of voice interactions</li>
+                <li>Voice patterns for user authentication and personalization</li>
+                <li>Command history and preferences</li>
+            </ul>
+            <p>Voice data is processed to understand and execute your commands and to improve Ava's voice recognition capabilities.</p>
+            
+            <h3>2.2 Trading Data</h3>
+            <p>To facilitate crypto trading and analysis, we collect:</p>
+            <ul>
+                <li>Token selections and watchlists</li>
+                <li>Trading preferences and parameters</li>
+                <li>Trade execution history</li>
+                <li>Performance metrics and analytics</li>
+            </ul>
+            
+            <h3>2.3 Cryptocurrency Transaction Data</h3>
+            <p>When executing trades through Ava AI, we process:</p>
+            <ul>
+                <li>Wallet addresses (public keys only)</li>
+                <li>Transaction details and confirmation statuses</li>
+                <li>Smart contract interactions</li>
+                <li>Solana network transaction data</li>
+            </ul>
+            <p>We <span class="glow-text">never</span> collect or store your private keys, seed phrases, or wallet passwords.</p>
+            
+            <h3>2.4 Technical Data</h3>
+            <p>When using our service, we automatically collect:</p>
+            <ul>
+                <li>Device information (type, operating system, browser)</li>
+                <li>IP address and general location data</li>
+                <li>Usage patterns and interactions with the interface</li>
+                <li>Performance and error data</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>3. How We Use Your Information</h2>
+            <p>We use the collected data for various purposes:</p>
+            <ul>
+                <li>To provide, operate, and maintain our service</li>
+                <li>To process and execute your trading commands</li>
+                <li>To scan for promising tokens based on your preferences</li>
+                <li>To deliver voice prompts and alerts about market conditions</li>
+                <li>To personalize your experience and optimize Ava's responses</li>
+                <li>To analyze usage patterns and improve our service</li>
+                <li>To detect and prevent fraudulent activities and security threats</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>4. Data Storage and Security</h2>
+            <p>We implement robust security measures to protect your data:</p>
+            <ul>
+                <li>All data is encrypted both in transit and at rest using industry-standard protocols</li>
+                <li>Voice data is stored on secure cloud servers with restricted access</li>
+                <li>Trading data is protected with multiple layers of security</li>
+                <li>We employ regular security audits and penetration testing</li>
+                <li>Access to user data is strictly limited to authorized personnel</li>
+            </ul>
+            <p>Your data is retained only for as long as necessary to provide our services and comply with legal obligations. You may request deletion of your data at any time, subject to regulatory requirements.</p>
+        </div>
+        
+        <div class="section">
+            <h2>5. Data Sharing and Disclosure</h2>
+            <p>We may share your information with:</p>
+            <ul>
+                <li>Axiom Pro platform for trade execution and token analysis</li>
+                <li>Solana blockchain network (for transaction processing)</li>
+                <li>Third-party service providers that help us operate our service</li>
+                <li>Legal and regulatory authorities when required by law</li>
+            </ul>
+            <p>We do not sell your personal data to third parties. Any sharing of data is governed by appropriate data processing agreements that maintain the security and confidentiality of your information.</p>
+        </div>
+        
+        <div class="section">
+            <h2>6. Your Rights</h2>
+            <p>Depending on your jurisdiction, you may have the following rights regarding your data:</p>
+            <ul>
+                <li>Right to access your personal data</li>
+                <li>Right to rectification of inaccurate data</li>
+                <li>Right to erasure ("right to be forgotten")</li>
+                <li>Right to restriction of processing</li>
+                <li>Right to data portability</li>
+                <li>Right to object to processing</li>
+            </ul>
+            <p>To exercise these rights, please contact us using the information provided in the "Contact Us" section.</p>
+        </div>
+        
+        <div class="section">
+            <h2>7. Third-Party Services</h2>
+            <p>Ava AI integrates with the Axiom Pro platform and Solana blockchain. Your use of these third-party services is subject to their respective privacy policies and terms of service. We recommend reviewing these policies.</p>
+            <p>We are not responsible for the privacy practices of any third-party services you access through Ava AI.</p>
+        </div>
+        
+        <div class="section">
+            <h2>8. Children's Privacy</h2>
+            <p>Our service is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from children. If we become aware that we have collected personal data from children without verification of parental consent, we take steps to remove that information from our servers.</p>
+        </div>
+        
+        <div class="section">
+            <h2>9. International Data Transfers</h2>
+            <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that differ from those in your country.</p>
+            <p>By using Ava AI, you consent to the transfer of your information to countries outside your country of residence, including the United States and countries where our servers and service providers are located.</p>
+        </div>
+        
+        <div class="section">
+            <h2>10. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        </div>
+        
+        <div class="date">
+            <span class="last-updated">Last Updated: April 20, 2025</span>
+        </div>
+    </div>
+    
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-opacity-20" style="border-color: var(--neon-green);">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center w-full">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">
+                        <span class="neon-text">AVA</span> <span class="text-white">AI</span>
+                    </h3>
+                    <p class="text-sm text-gray-400">Your Voice & Text Crypto Trading Assistant</p>
+                </div>
+                <nav class="flex gap-6 mb-4 md:mb-0">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="private-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                </nav>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-telegram text-xl" style="color: var(--neon-green);"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="glow-line mt-4 mb-4"></div>
+            <div class="mt-8 text-center text-xs text-gray-600">
+                <p class="footer-text">© 2025 Ava AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
