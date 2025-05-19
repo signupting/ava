@@ -1183,18 +1183,18 @@
         <div class="feature-card fade-in-up" data-aos-delay="600">
           <div class="feature-icon">
             <i class="fas fa-shield-alt"></i>
-          </div>
+            </div>
           <h3 class="feature-title">Security & Privacy</h3>
           <p class="feature-text">Your data and trades are protected with industry-leading encryption and privacy standards, ensuring your information stays safe on Axiom.</p>
-        </div>
       </div>
-      <div class="hexagon-bg">
-        <div class="hexagon" style="top: 15%; left: 5%;"></div>
-        <div class="hexagon" style="top: 60%; left: 15%; width: 120px; height: 132px;"></div>
-        <div class="hexagon" style="top: 30%; right: 10%; width: 100px; height: 110px;"></div>
-        <div class="hexagon" style="bottom: 20%; right: 5%; width: 150px; height: 165px;"></div>
-      </div>
-      <div class="circuit-bg"></div>
+    </div>
+    <div class="hexagon-bg">
+      <div class="hexagon" style="top: 15%; left: 5%;"></div>
+      <div class="hexagon" style="top: 60%; left: 15%; width: 120px; height: 132px;"></div>
+      <div class="hexagon" style="top: 30%; right: 10%; width: 100px; height: 110px;"></div>
+      <div class="hexagon" style="bottom: 20%; right: 5%; width: 150px; height: 165px;"></div>
+    </div>
+    <div class="circuit-bg"></div>
     </div>
   </section>
 
@@ -1234,12 +1234,13 @@
       </div>
       
       <h2 class="section-title text-center fade-in-up" style="margin-top: 48px; margin-bottom: 24px;">Watch <span class="ai-white">Demo</span></h2>
+      <p class="text-center text-gray-400 mb-4 md:hidden">Please rotate your phone for the best viewing experience.</p>
       <div id="demo-video-section" class="demo-video-container fade-in-up" data-aos="fade-up" style="margin-bottom: 24px;">
         <div class="custom-play-btn" id="customPlayBtn">
           <svg viewBox="0 0 64 64"><polygon points="16,8 56,32 16,56"/></svg>
-        </div>
+          </div>
         <video id="demoVideo" controls poster="demo-thumbnail.png">
-          <source src="ava-demo.mp4" type="video/mp4">
+          <source src="ava-demo-hq.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -1527,20 +1528,89 @@
     // Custom play button overlay for demo video
     const playBtn = document.getElementById('customPlayBtn');
     const demoVideo = document.getElementById('demoVideo');
+
+    async function requestFullscreenAndLockOrientation(videoElement) {
+      try {
+        if (videoElement.requestFullscreen) {
+          await videoElement.requestFullscreen();
+        } else if (videoElement.mozRequestFullScreen) { /* Firefox */
+          await videoElement.mozRequestFullScreen();
+        } else if (videoElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+          await videoElement.webkitRequestFullscreen(); // This might trigger landscape on iOS if video aspect ratio is wide
+        } else if (videoElement.msRequestFullscreen) { /* IE/Edge */
+          await videoElement.msRequestFullscreen();
+        }
+      } catch (err) {
+        console.error("Error requesting fullscreen:", err);
+      }
+      
+      // Attempt to lock screen orientation after fullscreen is hopefully active
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          await screen.orientation.lock('landscape');
+          console.log("Screen orientation locked to landscape.");
+        } else {
+          console.warn("Screen orientation lock API not supported or not available in this context (e.g., iOS).");
+        }
+      } catch (error) {
+        console.warn("Screen orientation lock failed:", error);
+      }
+    }
+
     if (playBtn && demoVideo) {
-      playBtn.addEventListener('click', function() {
-        playBtn.style.display = 'none';
-        demoVideo.play();
-        demoVideo.setAttribute('controls', 'controls');
+      playBtn.addEventListener('click', async function() {
+        const isMobile = window.innerWidth <= 768; // Simple check for mobile
+
+        playBtn.style.display = 'none'; // Hide custom button immediately
+        demoVideo.setAttribute('controls', 'controls'); // Ensure native controls are available
+
+        if (isMobile) {
+          await requestFullscreenAndLockOrientation(demoVideo);
+        }
+        
+        try {
+            // Video play is now primarily handled by user interaction with native controls after fullscreen,
+            // but we can initiate it.
+            await demoVideo.play();
+        } catch (playError) {
+            console.error("Error attempting to play video:", playError);
+            // If play fails (e.g., autoplay restrictions after fullscreen), 
+            // the user will need to use the native controls.
+        }
       });
+
       demoVideo.addEventListener('play', function() {
-        playBtn.style.display = 'none';
+        playBtn.style.display = 'none'; // Ensure custom button is hidden if play starts
       });
+
       demoVideo.addEventListener('pause', function() {
-        if (demoVideo.currentTime === 0 || demoVideo.ended) {
+        // Show custom play button only if video is at the start or ended,
+        // AND not in fullscreen (native controls should be used in fullscreen)
+        const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+        if ((demoVideo.currentTime === 0 || demoVideo.ended) && !isFullscreen) {
           playBtn.style.display = '';
         }
       });
+
+      // When exiting fullscreen, attempt to unlock orientation
+      const handleFullscreenChange = () => {
+        const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+        if (!isFullscreen) {
+          if (screen.orientation && screen.orientation.unlock) {
+            try {
+              screen.orientation.unlock();
+              console.log("Screen orientation unlocked.");
+            } catch (unlockError) {
+              console.warn("Error unlocking screen orientation:", unlockError);
+            }
+          }
+        }
+      };
+
+      document.addEventListener('fullscreenchange', handleFullscreenChange);
+      document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.addEventListener('MSFullscreenChange', handleFullscreenChange);
     }
 
     // Swap poster for mobile
